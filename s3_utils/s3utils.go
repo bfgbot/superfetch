@@ -36,7 +36,7 @@ func getS3Client() *s3.Client {
 		return s3Client
 	}
 
-	cfg, err := config.LoadDefaultConfig(context.TODO())
+	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEC2IMDSRegion())
 	if err != nil {
 		log.Panicln("Failed to load AWS config:", err)
 	}
